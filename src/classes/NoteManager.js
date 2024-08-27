@@ -21,11 +21,20 @@ export class NoteManager {
     });
     this.noteList.sort((a, b) => a[0] - b[0]);
     velList.forEach(({ Time: time, Scale: scale }) => {
+      if (scale == null) console.log(scale = 0);
       this.velList.push([time, scale]);
     });
     this.velList.sort((a, b) => a[0] - b[0]);
     this.#compileVelOffsets();
     this.#compileNoteVels();
+    console.log(this.velObjectList.map((x, i) => ({
+      time: this.velTimeList[i],
+      ...x
+    })));
+    console.log(this.noteObjectList.map((x, i) => ({
+      time: this.noteTimeList[i],
+      ...x
+    })));
   }
 
   #compileNoteVels() {
@@ -53,7 +62,7 @@ export class NoteManager {
       pvo = newOffset;
       this.velTimeList.push(time);
       this.velObjectList.push({
-        scale,
+        scale: scale,
         offset: newOffset
       });
     });
