@@ -3,52 +3,44 @@ import "kaplay/global";
 import { MapHandler } from "./assets/MapHandler";
 import { AssetHandler } from "./assets/AssetHandler";
 import { ArrayUtils } from "./utils/ArrayUtils";
+import { AudioTimer } from "./classes/AudioTimer";
+import { NoteManager } from "./classes/NoteManager";
 
-const k = kaplay()
+const k = kaplay({
+  logMax: 1
+})
 
 async function doGetAndCompile() {
-  const pow = await MapHandler.getMapDiff("princess_of_winter", "maps/insane.yml");
-  k.loadMusic("pow", AssetHandler.buildURL("maps/princess_of_winter/audio.mp3"));
+  const pow = await MapHandler.getMapDiff("femboy_music", "maps/fragile.yml");
+  console.log(pow);
+  k.loadMusic("pow", AssetHandler.buildURL("maps/femboy_music/audio.mp3"));
 
   const music = k.play("pow");
-  const notes = [];
-  const notePoses = [];
-
-  pow.NoteMap.forEach((note) => {
-    notes.push(note);
-    notePoses.push(note.Time);
+  const timer = new AudioTimer(music, k);
+  const notemanager = new NoteManager(pow.NoteMap, pow.VeloMap, {
+    noteSpeed: 500
   });
-  const whereIsZeroInPx = 100;
-  const whereIsGeneInPx = k.height();
-  const noteSpeed = 500;
-
-  let noteNeighbours = [];
-  let currentTime;
-
-  k.onUpdate(() => {
-    noteNeighbours = [];
-    currentTime = music.time() * 1000;
-    const NoteIdx = ArrayUtils.getClosestEnd(notePoses, currentTime);
-
-    let i = NoteIdx;
-    stopIterating = false;
-    while (!stopIterating) {
-      const currentNote = notes[i];
-      if (currentNote == null || currentNote.Time > currentTime + noteSpeed) {
-        stopIterating = true;
-      } else {
-        noteNeighbours.push(currentNote);
-      }
-      i++;
-    }
-  });
+  timer.start();
+  let whereIsZeroInPx = 100;
+  let whereIsGeneInPx = k.height();
+  let noteSpeed = 500;
 
   k.onDraw(() => {
-    noteNeighbours.forEach((note) => {
-      const timePos = (note.Time - currentTime) / noteSpeed;
-      const actualPos = (timePos * (k.height() - whereIsZeroInPx)) + whereIsZeroInPx;
+    const currentTime = timer.currentTime;
+    const timeOffset = notemanager.getPlayheadSVPosition(currentTime);
+    const currentVisible = notemanager.getVisibleNotes(timeOffset);
+
+    k.drawRect({
+      pos: k.vec2(0, whereIsZeroInPx),
+      width: 500,
+      height: 2,
+      color: k.RED
+    });
+    currentVisible.forEach((note) => {
+      const timePos = (note.svtm - timeOffset) / noteSpeed;
+      const actualPos = (timePos * (whereIsGeneInPx - whereIsZeroInPx)) + whereIsZeroInPx;
       k.drawRect({
-        pos: k.vec2((note.Lane * 100) + 100, actualPos),
+        pos: k.vec2((note.lane * 100) + 100, actualPos),
         width: 50,
         height: 50,
         color: k.WHITE

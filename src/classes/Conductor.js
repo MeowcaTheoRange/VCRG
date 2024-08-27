@@ -1,6 +1,7 @@
 import { ArrayUtils } from "../utils/ArrayUtils.js";
 import { Crotchet } from "./Crotchet.js";
 
+// Handles BPM and stuff like that.
 export class Conductor {
   bpmList = [];
   #bpmMap = new Map([]);
