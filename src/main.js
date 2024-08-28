@@ -7,13 +7,19 @@ import { AudioTimer } from "./classes/AudioTimer";
 import { NoteManager } from "./classes/NoteManager";
 
 const k = kaplay({
-  logMax: 1
+  logMax: 1,
+  maxFPS: 60,
+  background: "#000000"
 })
 
+String.prototype.replaceAt = function (index, replacement) {
+  return this.substring(0, index) + replacement + this.substring(index + replacement.length);
+}
+
 async function doGetAndCompile() {
-  const pow = await MapHandler.getMapDiff("test", "test.yml");
+  const pow = await MapHandler.getMapDiff("femboy_music", "maps/fragile.yml");
   console.log(pow);
-  k.loadMusic("pow", AssetHandler.buildURL("maps/test/audio.mp3"));
+  k.loadMusic("pow", AssetHandler.buildURL("maps/femboy_music/audio.mp3"));
 
   const music = k.play("pow");
   const timer = new AudioTimer(music, k);
@@ -21,32 +27,52 @@ async function doGetAndCompile() {
     noteSpeed: 500
   });
   timer.start();
-  let whereIsZeroInPx = 100;
-  let whereIsGeneInPx = k.height();
+  let consHeight = 20;
   let noteSpeed = 500;
 
-  k.onDraw(() => {
+  k.onUpdate(() => {
     const currentTime = timer.currentTime;
     const timeOffset = notemanager.getPlayheadSVPosition(currentTime);
     const currentVisible = notemanager.getVisibleNotes(timeOffset);
 
-    k.drawRect({
-      pos: k.vec2(0, whereIsZeroInPx),
-      width: 500,
-      height: 2,
-      color: k.RED
-    });
+    // console.clear();
+    let consoleString = new Array(consHeight + 1);
+    consoleString.fill('       ');
+    consoleString[1] = '< v ^ >';
     currentVisible.forEach((note) => {
       const timePos = (note.svtm - timeOffset) / noteSpeed;
-      const actualPos = (timePos * (whereIsGeneInPx - whereIsZeroInPx)) + whereIsZeroInPx;
-      k.drawRect({
-        pos: k.vec2((note.lane * 100) + 100, actualPos),
-        width: 50,
-        height: 50,
-        color: k.WHITE
-      });
-    })
+      const actualPos = Math.floor(timePos * consHeight);
+      if (consoleString[actualPos] != null && actualPos > 1)
+        consoleString[actualPos] = consoleString[actualPos].replaceAt(note.lane * 2, "x");
+    });
+    debug.log(consoleString.join("\n"));
   })
+  // let whereIsZeroInPx = 100;
+  // let whereIsGeneInPx = k.height();
+  // let noteSpeed = 500;
+
+  // k.onDraw(() => {
+  //   const currentTime = timer.currentTime;
+  //   const timeOffset = notemanager.getPlayheadSVPosition(currentTime);
+  //   const currentVisible = notemanager.getVisibleNotes(timeOffset);
+
+  //   k.drawRect({
+  //     pos: k.vec2(0, whereIsZeroInPx),
+  //     width: 500,
+  //     height: 2,
+  //     color: k.RED
+  //   });
+  //   currentVisible.forEach((note) => {
+  //     const timePos = (note.svtm - timeOffset) / noteSpeed;
+  //     const actualPos = (timePos * (whereIsGeneInPx - whereIsZeroInPx)) + whereIsZeroInPx;
+  //     k.drawRect({
+  //       pos: k.vec2((note.lane * 100) + 100, actualPos),
+  //       width: 50,
+  //       height: 50,
+  //       color: k.WHITE
+  //     });
+  //   })
+  // })
 }
 
 k.onKeyPress("y", () => {
