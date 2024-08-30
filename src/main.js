@@ -17,9 +17,9 @@ String.prototype.replaceAt = function (index, replacement) {
 }
 
 async function doGetAndCompile() {
-  const pow = await MapHandler.getMapDiff("femboy_music", "maps/fragile.yml");
+  const pow = await MapHandler.getMapDiff("strawberry_godzilla", "maps/rawr.yml");
   console.log(pow);
-  k.loadMusic("pow", AssetHandler.buildURL("maps/femboy_music/audio.mp3"));
+  k.loadMusic("pow", AssetHandler.buildURL("maps/strawberry_godzilla/audio.mp3"));
 
   const music = k.play("pow");
   const timer = new AudioTimer(music, k);
