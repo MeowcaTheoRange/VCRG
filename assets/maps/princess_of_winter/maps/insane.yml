@@ -6,12 +6,7 @@ BeatMap:
   - Time: 609
     Bpm: 197
 VeloMap: []
-Players:
-  - Lanes: 4
-    Input:
-      - Key4K
-    Output:
-      - Lanes4K
+Lanes: 4
 NoteMap:
   - Time: 609
     Lane: 3

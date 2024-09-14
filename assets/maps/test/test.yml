@@ -2,6 +2,7 @@ MetaVer: 1
 Mappers: 
 - KGB Official
 MapName: official quaver music artist when
+Lanes: 4
 BeatMap:
 - Time: 14
   Bpm: 167

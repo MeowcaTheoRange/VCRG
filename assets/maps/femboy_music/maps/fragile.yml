@@ -2,6 +2,7 @@ MetaVer: 1
 MapName: Fragile
 Mappers: 
   - ESV Zeph
+Lanes: 4
 BeatMap:
   - Time: 2023.990966796875
     Bpm: 200

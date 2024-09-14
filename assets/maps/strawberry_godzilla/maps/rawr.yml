@@ -2,6 +2,7 @@ MetaVer: 1
 MapName: zeph's rawr
 Mappers:
   - ESV zeph
+Lanes: 4
 BeatMap:
 - Time: 762
   Bpm: 128
@@ -31527,1337 +31528,1337 @@ Players:
       - Lanes4K
 NoteMap:
 - Time: 762
-  Lane: 4
+  Lane: 3
 - Time: 996
-  Lane: 3
+  Lane: 2
 - Time: 1230
-  Lane: 1
+  Lane: 0
 - Time: 1464
-  Lane: 2
+  Lane: 1
 - Time: 1699
-  Lane: 4
+  Lane: 3
 - Time: 1933
-  Lane: 3
+  Lane: 2
 - Time: 2168
-  Lane: 4
+  Lane: 3
 - Time: 2402
-  Lane: 2
+  Lane: 1
 - Time: 2637
-  Lane: 1
+  Lane: 0
 - Time: 3105
-  Lane: 2
+  Lane: 1
 - Time: 3574
-  Lane: 3
+  Lane: 2
 - Time: 3808
-  Lane: 2
+  Lane: 1
 - Time: 4043
-  Lane: 4
+  Lane: 3
 - Time: 4512
-  Lane: 1
+  Lane: 0
 - Time: 4980
-  Lane: 2
+  Lane: 1
 - Time: 5214
-  Lane: 3
+  Lane: 2
 - Time: 5449
-  Lane: 2
+  Lane: 1
 - Time: 5683
-  Lane: 3
+  Lane: 2
 - Time: 5918
-  Lane: 4
+  Lane: 3
 - Time: 6387
-  Lane: 3
+  Lane: 2
 - Time: 6855
-  Lane: 2
+  Lane: 1
 - Time: 7324
-  Lane: 1
+  Lane: 0
 - Time: 7558
-  Lane: 3
+  Lane: 2
 - Time: 7793
-  Lane: 4
+  Lane: 3
 - Time: 8262
-  Lane: 2
+  Lane: 1
 - Time: 8496
-  Lane: 3
+  Lane: 2
 - Time: 8730
-  Lane: 2
+  Lane: 1
 - Time: 8964
-  Lane: 3
+  Lane: 2
 - Time: 9199
-  Lane: 2
+  Lane: 1
 - Time: 9668
-  Lane: 4
+  Lane: 3
 - Time: 9902
-  Lane: 3
+  Lane: 2
 - Time: 10137
-  Lane: 1
+  Lane: 0
 - Time: 10371
-  Lane: 2
+  Lane: 1
 - Time: 10605
-  Lane: 4
+  Lane: 3
 - Time: 11074
-  Lane: 3
+  Lane: 2
 - Time: 11308
-  Lane: 2
+  Lane: 1
 - Time: 11543
-  Lane: 4
+  Lane: 3
 - Time: 12012
-  Lane: 1
+  Lane: 0
 - Time: 12246
-  Lane: 2
+  Lane: 1
 - Time: 12480
-  Lane: 3
+  Lane: 2
 - Time: 12714
-  Lane: 4
+  Lane: 3
 - Time: 12949
-  Lane: 2
+  Lane: 1
 - Time: 13183
-  Lane: 1
+  Lane: 0
 - Time: 13418
-  Lane: 4
+  Lane: 3
 - Time: 13887
-  Lane: 1
+  Lane: 0
 - Time: 14121
-  Lane: 2
+  Lane: 1
 - Time: 14355
-  Lane: 3
+  Lane: 2
 - Time: 14472
-  Lane: 4
+  Lane: 3
 - Time: 14589
-  Lane: 2
+  Lane: 1
 - Time: 14824
-  Lane: 1
+  Lane: 0
 - Time: 15058
-  Lane: 2
+  Lane: 1
 - Time: 15293
-  Lane: 3
+  Lane: 2
 - Time: 15410
-  Lane: 4
+  Lane: 3
 - Time: 15527
-  Lane: 2
-- Time: 15762
   Lane: 1
 - Time: 15762
+  Lane: 0
+- Time: 15762
+  Lane: 2
+- Time: 15996
   Lane: 3
 - Time: 15996
-  Lane: 4
-- Time: 15996
-  Lane: 2
-- Time: 16230
   Lane: 1
 - Time: 16230
+  Lane: 0
+- Time: 16230
+  Lane: 2
+- Time: 16465
   Lane: 3
 - Time: 16465
-  Lane: 4
-- Time: 16465
-  Lane: 2
-- Time: 16699
   Lane: 1
 - Time: 16699
+  Lane: 0
+- Time: 16699
+  Lane: 2
+- Time: 16933
   Lane: 3
 - Time: 16933
-  Lane: 4
-- Time: 16933
-  Lane: 2
-- Time: 17168
   Lane: 1
 - Time: 17168
+  Lane: 0
+- Time: 17168
+  Lane: 2
+- Time: 17402
   Lane: 3
 - Time: 17402
-  Lane: 4
-- Time: 17402
-  Lane: 2
-- Time: 17637
   Lane: 1
 - Time: 17637
-  Lane: 3
+  Lane: 0
+- Time: 17637
+  Lane: 2
 - Time: 17988
-  Lane: 4
+  Lane: 3
+- Time: 18105
+  Lane: 0
 - Time: 18105
   Lane: 1
-- Time: 18105
-  Lane: 2
   Tail: 18340
 - Time: 18340
-  Lane: 3
+  Lane: 2
   Tail: 18574
 - Time: 18457
-  Lane: 2
+  Lane: 1
 - Time: 18574
-  Lane: 4
+  Lane: 3
   Tail: 19043
 - Time: 18574
-  Lane: 1
+  Lane: 0
 - Time: 18926
-  Lane: 3
+  Lane: 2
+- Time: 19043
+  Lane: 0
 - Time: 19043
   Lane: 1
-- Time: 19043
-  Lane: 2
 - Time: 19277
-  Lane: 3
+  Lane: 2
   Tail: 19512
 - Time: 19512
-  Lane: 2
-- Time: 19512
-  Lane: 4
-- Time: 19746
   Lane: 1
+- Time: 19512
+  Lane: 3
+- Time: 19746
+  Lane: 0
   Tail: 19980
 - Time: 19980
-  Lane: 3
+  Lane: 2
 - Time: 19980
-  Lane: 4
+  Lane: 3
   Tail: 20215
 - Time: 20215
-  Lane: 2
+  Lane: 1
   Tail: 20449
 - Time: 20449
-  Lane: 1
+  Lane: 0
   Tail: 20683
 - Time: 20449
-  Lane: 3
+  Lane: 2
 - Time: 20683
-  Lane: 4
+  Lane: 3
   Tail: 20918
 - Time: 20918
-  Lane: 2
+  Lane: 1
 - Time: 20918
-  Lane: 3
+  Lane: 2
   Tail: 21387
 - Time: 21152
+  Lane: 0
+- Time: 21387
   Lane: 1
 - Time: 21387
-  Lane: 2
-- Time: 21387
-  Lane: 4
-- Time: 21621
   Lane: 3
+- Time: 21621
+  Lane: 2
+- Time: 21855
+  Lane: 0
 - Time: 21855
   Lane: 1
-- Time: 21855
-  Lane: 2
   Tail: 22090
 - Time: 22090
-  Lane: 3
+  Lane: 2
   Tail: 22324
 - Time: 22324
-  Lane: 4
+  Lane: 3
   Tail: 22793
 - Time: 22324
-  Lane: 1
+  Lane: 0
 - Time: 22558
-  Lane: 2
-- Time: 22793
-  Lane: 3
-- Time: 22793
   Lane: 1
-- Time: 23027
+- Time: 22793
   Lane: 2
+- Time: 22793
+  Lane: 0
+- Time: 23027
+  Lane: 1
   Tail: 23262
 - Time: 23262
-  Lane: 1
+  Lane: 0
   Tail: 23496
 - Time: 23262
-  Lane: 4
-- Time: 23496
   Lane: 3
+- Time: 23496
+  Lane: 2
   Tail: 23730
 - Time: 23730
-  Lane: 1
+  Lane: 0
   Tail: 23965
 - Time: 23730
-  Lane: 4
-- Time: 23965
   Lane: 3
+- Time: 23965
+  Lane: 2
   Tail: 24199
 - Time: 24199
-  Lane: 2
+  Lane: 1
   Tail: 24668
 - Time: 24199
-  Lane: 1
+  Lane: 0
 - Time: 24433
-  Lane: 4
-- Time: 24551
   Lane: 3
+- Time: 24551
+  Lane: 2
 - Time: 24668
-  Lane: 4
+  Lane: 3
   Tail: 25137
 - Time: 24668
-  Lane: 1
+  Lane: 0
 - Time: 24902
+  Lane: 1
+- Time: 25137
   Lane: 2
 - Time: 25137
-  Lane: 3
-- Time: 25137
-  Lane: 1
+  Lane: 0
 - Time: 25371
-  Lane: 2
-- Time: 25488
-  Lane: 3
-- Time: 25605
   Lane: 1
+- Time: 25488
+  Lane: 2
 - Time: 25605
-  Lane: 4
-- Time: 25840
+  Lane: 0
+- Time: 25605
   Lane: 3
+- Time: 25840
+  Lane: 2
   Tail: 26074
 - Time: 25957
-  Lane: 4
+  Lane: 3
 - Time: 26074
-  Lane: 1
+  Lane: 0
   Tail: 26543
 - Time: 26074
-  Lane: 2
+  Lane: 1
 - Time: 26308
-  Lane: 3
+  Lane: 2
 - Time: 26426
-  Lane: 4
+  Lane: 3
+- Time: 26543
+  Lane: 1
 - Time: 26543
   Lane: 2
-- Time: 26543
-  Lane: 3
 - Time: 26777
-  Lane: 4
+  Lane: 3
   Tail: 27012
 - Time: 27012
-  Lane: 2
+  Lane: 1
   Tail: 27246
 - Time: 27246
-  Lane: 3
+  Lane: 2
   Tail: 27480
 - Time: 27480
-  Lane: 1
+  Lane: 0
   Tail: 27715
 - Time: 27480
-  Lane: 4
+  Lane: 3
 - Time: 27715
-  Lane: 2
+  Lane: 1
   Tail: 27949
 - Time: 27949
-  Lane: 4
+  Lane: 3
   Tail: 28183
 - Time: 27949
-  Lane: 3
-- Time: 28183
   Lane: 2
+- Time: 28183
+  Lane: 1
   Tail: 28418
 - Time: 28419
-  Lane: 1
+  Lane: 0
   Tail: 28652
 - Time: 28419
-  Lane: 4
-- Time: 28652
   Lane: 3
+- Time: 28652
+  Lane: 2
   Tail: 28887
 - Time: 28887
-  Lane: 2
+  Lane: 1
   Tail: 29238
 - Time: 28887
-  Lane: 1
+  Lane: 0
 - Time: 29121
-  Lane: 4
-- Time: 29238
   Lane: 3
+- Time: 29238
+  Lane: 2
   Tail: 29590
 - Time: 29355
-  Lane: 4
+  Lane: 3
 - Time: 29355
-  Lane: 1
+  Lane: 0
 - Time: 29590
-  Lane: 2
+  Lane: 1
   Tail: 29824
 - Time: 29824
-  Lane: 3
+  Lane: 2
 - Time: 29824
-  Lane: 4
+  Lane: 3
   Tail: 30293
 - Time: 30058
-  Lane: 1
+  Lane: 0
 - Time: 30058
-  Lane: 2
-- Time: 30293
-  Lane: 3
-- Time: 30293
   Lane: 1
-- Time: 30527
+- Time: 30293
   Lane: 2
+- Time: 30293
+  Lane: 0
+- Time: 30527
+  Lane: 1
   Tail: 30762
 - Time: 30762
-  Lane: 4
-- Time: 30762
   Lane: 3
+- Time: 30762
+  Lane: 2
 - Time: 30996
-  Lane: 1
+  Lane: 0
   Tail: 31230
 - Time: 31230
-  Lane: 2
+  Lane: 1
 - Time: 31230
-  Lane: 3
+  Lane: 2
 - Time: 31465
-  Lane: 4
+  Lane: 3
   Tail: 31699
 - Time: 31699
-  Lane: 1
+  Lane: 0
   Tail: 31933
 - Time: 31699
-  Lane: 3
-- Time: 31933
   Lane: 2
+- Time: 31933
+  Lane: 1
   Tail: 32168
 - Time: 32168
-  Lane: 3
+  Lane: 2
   Tail: 32637
 - Time: 32168
-  Lane: 4
+  Lane: 3
 - Time: 32402
-  Lane: 2
-- Time: 32637
   Lane: 1
 - Time: 32637
-  Lane: 4
+  Lane: 0
+- Time: 32637
+  Lane: 3
 - Time: 32871
-  Lane: 2
-- Time: 32988
   Lane: 1
+- Time: 32988
+  Lane: 0
+- Time: 33105
+  Lane: 2
 - Time: 33105
   Lane: 3
-- Time: 33105
-  Lane: 4
   Tail: 33574
 - Time: 33340
-  Lane: 2
-- Time: 33574
   Lane: 1
 - Time: 33574
-  Lane: 3
+  Lane: 0
+- Time: 33574
+  Lane: 2
   Tail: 34043
 - Time: 33808
-  Lane: 2
-- Time: 33926
-  Lane: 4
-- Time: 34043
   Lane: 1
+- Time: 33926
+  Lane: 3
+- Time: 34043
+  Lane: 0
   Tail: 34277
 - Time: 34043
-  Lane: 2
+  Lane: 1
 - Time: 34277
-  Lane: 3
+  Lane: 2
   Tail: 34512
 - Time: 34512
-  Lane: 1
+  Lane: 0
 - Time: 34512
-  Lane: 4
+  Lane: 3
   Tail: 34980
 - Time: 34746
-  Lane: 2
-- Time: 34863
-  Lane: 3
-- Time: 34980
   Lane: 1
+- Time: 34863
+  Lane: 2
+- Time: 34980
+  Lane: 0
   Tail: 35449
 - Time: 34980
-  Lane: 2
+  Lane: 1
 - Time: 35215
-  Lane: 3
+  Lane: 2
 - Time: 35449
-  Lane: 4
+  Lane: 3
   Tail: 35918
 - Time: 35683
-  Lane: 2
+  Lane: 1
 - Time: 35801
+  Lane: 0
+- Time: 35918
   Lane: 1
 - Time: 35918
   Lane: 2
-- Time: 35918
-  Lane: 3
 - Time: 36152
-  Lane: 4
-- Time: 36387
-  Lane: 1
-- Time: 36387
-  Lane: 2
-- Time: 36621
   Lane: 3
-- Time: 36738
+- Time: 36387
+  Lane: 0
+- Time: 36387
+  Lane: 1
+- Time: 36621
   Lane: 2
-- Time: 36855
+- Time: 36738
   Lane: 1
 - Time: 36855
-  Lane: 4
+  Lane: 0
+- Time: 36855
+  Lane: 3
   Tail: 37324
 - Time: 37090
-  Lane: 3
-- Time: 37324
   Lane: 2
+- Time: 37324
+  Lane: 1
   Tail: 37793
 - Time: 37324
-  Lane: 1
+  Lane: 0
 - Time: 37558
-  Lane: 4
-- Time: 37793
-  Lane: 1
-- Time: 37793
   Lane: 3
+- Time: 37793
+  Lane: 0
+- Time: 37793
+  Lane: 2
   Tail: 38027
 - Time: 38027
-  Lane: 2
+  Lane: 1
   Tail: 38262
 - Time: 38262
-  Lane: 4
+  Lane: 3
   Tail: 38730
 - Time: 38262
-  Lane: 3
-- Time: 38496
   Lane: 2
-- Time: 38613
+- Time: 38496
   Lane: 1
+- Time: 38613
+  Lane: 0
 - Time: 38730
-  Lane: 3
+  Lane: 2
   Tail: 39199
 - Time: 38730
-  Lane: 2
+  Lane: 1
 - Time: 38965
-  Lane: 4
+  Lane: 3
+- Time: 39199
+  Lane: 0
 - Time: 39199
   Lane: 1
-- Time: 39199
-  Lane: 2
   Tail: 39668
 - Time: 39433
-  Lane: 3
+  Lane: 2
 - Time: 39551
-  Lane: 4
-- Time: 39668
   Lane: 3
+- Time: 39668
+  Lane: 2
   Tail: 39902
 - Time: 39668
-  Lane: 1
+  Lane: 0
 - Time: 39902
-  Lane: 2
+  Lane: 1
   Tail: 40137
 - Time: 40137
-  Lane: 3
+  Lane: 2
 - Time: 40137
-  Lane: 4
+  Lane: 3
   Tail: 40371
 - Time: 40371
-  Lane: 1
+  Lane: 0
   Tail: 40605
 - Time: 40488
-  Lane: 2
-- Time: 40605
-  Lane: 4
+  Lane: 1
 - Time: 40605
   Lane: 3
-- Time: 40840
+- Time: 40605
   Lane: 2
+- Time: 40840
+  Lane: 1
   Tail: 41074
 - Time: 40957
+  Lane: 2
+- Time: 41074
   Lane: 3
 - Time: 41074
-  Lane: 4
-- Time: 41074
-  Lane: 1
+  Lane: 0
 - Time: 41308
-  Lane: 3
+  Lane: 2
   Tail: 41543
 - Time: 41426
-  Lane: 4
+  Lane: 3
+- Time: 41543
+  Lane: 0
 - Time: 41543
   Lane: 1
-- Time: 41543
-  Lane: 2
 - Time: 41777
-  Lane: 4
+  Lane: 3
   Tail: 42012
 - Time: 42012
-  Lane: 3
+  Lane: 2
 - Time: 42012
-  Lane: 1
+  Lane: 0
   Tail: 42246
 - Time: 42246
-  Lane: 4
+  Lane: 3
   Tail: 42480
 - Time: 42363
-  Lane: 2
-- Time: 42480
-  Lane: 3
-- Time: 42480
   Lane: 1
-- Time: 42715
+- Time: 42480
   Lane: 2
+- Time: 42480
+  Lane: 0
+- Time: 42715
+  Lane: 1
   Tail: 42949
 - Time: 42949
-  Lane: 4
-- Time: 42949
-  Lane: 1
-- Time: 43183
   Lane: 3
+- Time: 42949
+  Lane: 0
+- Time: 43183
+  Lane: 2
   Tail: 43418
 - Time: 43301
+  Lane: 0
+- Time: 43418
+  Lane: 3
+- Time: 43418
   Lane: 1
-- Time: 43418
-  Lane: 4
-- Time: 43418
-  Lane: 2
 - Time: 43652
-  Lane: 1
+  Lane: 0
   Tail: 43887
 - Time: 43887
-  Lane: 3
-- Time: 43887
   Lane: 2
+- Time: 43887
+  Lane: 1
   Tail: 44121
 - Time: 44121
-  Lane: 4
+  Lane: 3
   Tail: 44355
 - Time: 44238
-  Lane: 3
-- Time: 44355
   Lane: 2
+- Time: 44355
+  Lane: 1
   Tail: 44590
 - Time: 44355
-  Lane: 1
+  Lane: 0
 - Time: 44590
-  Lane: 3
+  Lane: 2
   Tail: 44824
 - Time: 44824
-  Lane: 2
+  Lane: 1
 - Time: 44824
-  Lane: 4
-- Time: 45058
   Lane: 3
+- Time: 45058
+  Lane: 2
   Tail: 45293
 - Time: 45176
-  Lane: 4
-- Time: 45293
-  Lane: 2
+  Lane: 3
 - Time: 45293
   Lane: 1
+- Time: 45293
+  Lane: 0
   Tail: 45527
 - Time: 45527
-  Lane: 4
+  Lane: 3
   Tail: 45762
 - Time: 45762
-  Lane: 3
+  Lane: 2
   Tail: 45996
 - Time: 45996
-  Lane: 2
+  Lane: 1
   Tail: 46230
 - Time: 46933
-  Lane: 1
+  Lane: 0
 - Time: 47051
-  Lane: 2
-- Time: 47168
-  Lane: 4
+  Lane: 1
 - Time: 47168
   Lane: 3
+- Time: 47168
+  Lane: 2
 - Time: 47402
-  Lane: 2
-- Time: 47637
   Lane: 1
 - Time: 47637
-  Lane: 3
+  Lane: 0
+- Time: 47637
+  Lane: 2
 - Time: 47754
-  Lane: 4
+  Lane: 3
 - Time: 47871
-  Lane: 3
+  Lane: 2
 - Time: 47988
-  Lane: 2
-- Time: 48105
   Lane: 1
 - Time: 48105
-  Lane: 3
+  Lane: 0
+- Time: 48105
+  Lane: 2
 - Time: 48222
-  Lane: 4
-- Time: 48340
   Lane: 3
-- Time: 48457
+- Time: 48340
   Lane: 2
-- Time: 48574
+- Time: 48457
   Lane: 1
 - Time: 48574
-  Lane: 4
+  Lane: 0
+- Time: 48574
+  Lane: 3
 - Time: 77637
-  Lane: 4
+  Lane: 3
   Tail: 81387
 - Time: 78105
-  Lane: 1
+  Lane: 0
 - Time: 78340
-  Lane: 2
+  Lane: 1
 - Time: 78574
-  Lane: 2
+  Lane: 1
 - Time: 79277
-  Lane: 2
+  Lane: 1
 - Time: 79746
-  Lane: 2
+  Lane: 1
 - Time: 79980
-  Lane: 1
+  Lane: 0
 - Time: 80215
-  Lane: 2
+  Lane: 1
 - Time: 80449
-  Lane: 1
+  Lane: 0
 - Time: 80683
-  Lane: 2
-- Time: 80918
-  Lane: 2
-- Time: 81387
   Lane: 1
+- Time: 80918
+  Lane: 1
+- Time: 81387
+  Lane: 0
   Tail: 85137
 - Time: 81855
-  Lane: 4
+  Lane: 3
 - Time: 82090
-  Lane: 3
+  Lane: 2
 - Time: 82324
-  Lane: 4
+  Lane: 3
 - Time: 83027
-  Lane: 4
+  Lane: 3
 - Time: 83496
-  Lane: 4
+  Lane: 3
 - Time: 83730
-  Lane: 3
+  Lane: 2
 - Time: 83965
-  Lane: 4
+  Lane: 3
 - Time: 84199
-  Lane: 3
+  Lane: 2
 - Time: 84433
-  Lane: 3
+  Lane: 2
 - Time: 84668
-  Lane: 4
+  Lane: 3
 - Time: 85137
-  Lane: 4
+  Lane: 3
   Tail: 87012
 - Time: 85605
-  Lane: 1
+  Lane: 0
 - Time: 85840
-  Lane: 2
+  Lane: 1
 - Time: 86074
-  Lane: 1
+  Lane: 0
 - Time: 86777
-  Lane: 2
-- Time: 87012
   Lane: 1
+- Time: 87012
+  Lane: 0
   Tail: 88887
 - Time: 87246
-  Lane: 3
+  Lane: 2
 - Time: 87480
-  Lane: 4
+  Lane: 3
 - Time: 87715
-  Lane: 4
+  Lane: 3
 - Time: 87949
-  Lane: 3
+  Lane: 2
 - Time: 88183
-  Lane: 4
-- Time: 88418
   Lane: 3
+- Time: 88418
+  Lane: 2
 - Time: 88887
-  Lane: 4
+  Lane: 3
   Tail: 90762
 - Time: 89238
-  Lane: 2
+  Lane: 1
 - Time: 89590
-  Lane: 2
+  Lane: 1
 - Time: 90293
-  Lane: 1
+  Lane: 0
 - Time: 90527
-  Lane: 2
-- Time: 90762
   Lane: 1
+- Time: 90762
+  Lane: 0
   Tail: 91699
 - Time: 90996
-  Lane: 4
+  Lane: 3
 - Time: 91230
-  Lane: 3
+  Lane: 2
 - Time: 91465
-  Lane: 4
+  Lane: 3
 - Time: 91699
-  Lane: 4
+  Lane: 3
 - Time: 92168
+  Lane: 2
+- Time: 92637
   Lane: 3
 - Time: 92637
-  Lane: 4
-- Time: 92637
-  Lane: 1
+  Lane: 0
   Tail: 94512
 - Time: 93105
-  Lane: 4
-- Time: 93574
-  Lane: 4
-- Time: 94043
   Lane: 3
+- Time: 93574
+  Lane: 3
+- Time: 94043
+  Lane: 2
 - Time: 94277
-  Lane: 4
+  Lane: 3
 - Time: 94512
-  Lane: 4
+  Lane: 3
   Tail: 96387
 - Time: 94980
-  Lane: 2
+  Lane: 1
 - Time: 95449
-  Lane: 1
+  Lane: 0
 - Time: 96387
-  Lane: 1
+  Lane: 0
   Tail: 98262
 - Time: 97324
-  Lane: 3
+  Lane: 2
 - Time: 97793
-  Lane: 4
+  Lane: 3
 - Time: 98027
-  Lane: 4
+  Lane: 3
 - Time: 98262
-  Lane: 4
+  Lane: 3
   Tail: 100137
 - Time: 98730
-  Lane: 1
+  Lane: 0
 - Time: 99199
-  Lane: 2
+  Lane: 1
 - Time: 99668
-  Lane: 2
+  Lane: 1
 - Time: 99902
-  Lane: 1
+  Lane: 0
 - Time: 100137
-  Lane: 1
+  Lane: 0
   Tail: 102012
 - Time: 100371
-  Lane: 3
+  Lane: 2
 - Time: 100840
-  Lane: 4
+  Lane: 3
 - Time: 101308
-  Lane: 3
+  Lane: 2
 - Time: 101777
-  Lane: 3
+  Lane: 2
 - Time: 102012
-  Lane: 4
+  Lane: 3
   Tail: 103887
 - Time: 102246
-  Lane: 2
+  Lane: 1
 - Time: 102715
-  Lane: 1
+  Lane: 0
 - Time: 103183
-  Lane: 2
-- Time: 103652
-  Lane: 2
-- Time: 103887
   Lane: 1
+- Time: 103652
+  Lane: 1
+- Time: 103887
+  Lane: 0
   Tail: 105762
 - Time: 104121
-  Lane: 4
+  Lane: 3
 - Time: 104355
-  Lane: 4
+  Lane: 3
 - Time: 104590
-  Lane: 4
+  Lane: 3
 - Time: 104824
-  Lane: 3
+  Lane: 2
 - Time: 105058
-  Lane: 3
+  Lane: 2
 - Time: 105293
-  Lane: 3
+  Lane: 2
 - Time: 105527
-  Lane: 4
+  Lane: 3
 - Time: 105762
-  Lane: 4
+  Lane: 3
   Tail: 106230
 - Time: 106230
-  Lane: 1
+  Lane: 0
 - Time: 106699
-  Lane: 4
+  Lane: 3
 - Time: 106816
-  Lane: 1
+  Lane: 0
 - Time: 106933
-  Lane: 2
+  Lane: 1
 - Time: 107051
+  Lane: 2
+- Time: 107168
   Lane: 3
 - Time: 107168
-  Lane: 4
-- Time: 107168
+  Lane: 0
+- Time: 107402
   Lane: 1
 - Time: 107402
   Lane: 2
-- Time: 107402
+- Time: 107637
   Lane: 3
 - Time: 107637
-  Lane: 4
-- Time: 107637
-  Lane: 1
+  Lane: 0
 - Time: 107754
-  Lane: 3
+  Lane: 2
 - Time: 107871
-  Lane: 2
+  Lane: 1
 - Time: 107988
+  Lane: 2
+- Time: 108105
   Lane: 3
 - Time: 108105
-  Lane: 4
-- Time: 108105
-  Lane: 1
-- Time: 108340
-  Lane: 3
+  Lane: 0
 - Time: 108340
   Lane: 2
-- Time: 108574
+- Time: 108340
   Lane: 1
 - Time: 108574
-  Lane: 4
+  Lane: 0
+- Time: 108574
+  Lane: 3
 - Time: 108691
-  Lane: 2
+  Lane: 1
 - Time: 108808
-  Lane: 3
+  Lane: 2
 - Time: 108926
-  Lane: 2
-- Time: 109043
   Lane: 1
 - Time: 109043
-  Lane: 4
-- Time: 109277
+  Lane: 0
+- Time: 109043
   Lane: 3
 - Time: 109277
   Lane: 2
-- Time: 109512
-  Lane: 2
+- Time: 109277
+  Lane: 1
 - Time: 109512
   Lane: 1
+- Time: 109512
+  Lane: 0
 - Time: 109746
-  Lane: 4
+  Lane: 3
 - Time: 109863
-  Lane: 3
-- Time: 109980
   Lane: 2
 - Time: 109980
   Lane: 1
+- Time: 109980
+  Lane: 0
 - Time: 110215
-  Lane: 3
+  Lane: 2
 - Time: 110332
-  Lane: 4
+  Lane: 3
+- Time: 110449
+  Lane: 0
 - Time: 110449
   Lane: 1
-- Time: 110449
+- Time: 110683
   Lane: 2
 - Time: 110683
   Lane: 3
-- Time: 110683
-  Lane: 4
+- Time: 110918
+  Lane: 0
 - Time: 110918
   Lane: 1
-- Time: 110918
+- Time: 111152
   Lane: 2
 - Time: 111152
   Lane: 3
-- Time: 111152
-  Lane: 4
 - Time: 111387
-  Lane: 4
+  Lane: 3
 - Time: 111387
+  Lane: 1
+- Time: 111621
   Lane: 2
 - Time: 111621
-  Lane: 3
-- Time: 111621
+  Lane: 0
+- Time: 111855
   Lane: 1
 - Time: 111855
+  Lane: 3
+- Time: 112090
   Lane: 2
-- Time: 111855
-  Lane: 4
 - Time: 112090
-  Lane: 3
-- Time: 112090
-  Lane: 1
-- Time: 112324
-  Lane: 4
+  Lane: 0
 - Time: 112324
   Lane: 3
+- Time: 112324
+  Lane: 2
 - Time: 112441
-  Lane: 2
+  Lane: 1
 - Time: 112558
-  Lane: 1
+  Lane: 0
+- Time: 112793
+  Lane: 2
 - Time: 112793
   Lane: 3
-- Time: 112793
-  Lane: 4
-- Time: 113027
-  Lane: 2
 - Time: 113027
   Lane: 1
+- Time: 113027
+  Lane: 0
+- Time: 113262
+  Lane: 2
 - Time: 113262
   Lane: 3
-- Time: 113262
-  Lane: 4
+- Time: 113496
+  Lane: 1
 - Time: 113496
   Lane: 2
-- Time: 113496
+- Time: 113730
   Lane: 3
 - Time: 113730
-  Lane: 4
-- Time: 113730
-  Lane: 1
+  Lane: 0
 - Time: 114199
-  Lane: 4
+  Lane: 3
 - Time: 114199
-  Lane: 1
+  Lane: 0
 - Time: 114433
+  Lane: 0
+- Time: 114668
   Lane: 1
 - Time: 114668
   Lane: 2
-- Time: 114668
+- Time: 114902
   Lane: 3
 - Time: 114902
-  Lane: 4
-- Time: 114902
-  Lane: 1
+  Lane: 0
 - Time: 115137
-  Lane: 4
+  Lane: 3
 - Time: 115137
-  Lane: 1
+  Lane: 0
 - Time: 115254
-  Lane: 3
+  Lane: 2
 - Time: 115371
-  Lane: 2
+  Lane: 1
 - Time: 115488
+  Lane: 2
+- Time: 115605
   Lane: 3
 - Time: 115605
-  Lane: 4
-- Time: 115605
+  Lane: 0
+- Time: 115840
   Lane: 1
 - Time: 115840
   Lane: 2
-- Time: 115840
+- Time: 116074
   Lane: 3
 - Time: 116074
-  Lane: 4
-- Time: 116074
-  Lane: 1
-- Time: 116543
-  Lane: 3
+  Lane: 0
 - Time: 116543
   Lane: 2
-- Time: 116777
-  Lane: 4
-- Time: 116777
+- Time: 116543
   Lane: 1
+- Time: 116777
+  Lane: 3
+- Time: 116777
+  Lane: 0
+- Time: 117012
+  Lane: 2
 - Time: 117012
   Lane: 3
-- Time: 117012
-  Lane: 4
 - Time: 117246
-  Lane: 1
+  Lane: 0
 - Time: 117363
-  Lane: 2
-- Time: 117480
-  Lane: 4
+  Lane: 1
 - Time: 117480
   Lane: 3
+- Time: 117480
+  Lane: 2
 - Time: 117715
-  Lane: 2
+  Lane: 1
 - Time: 117832
+  Lane: 2
+- Time: 117949
   Lane: 3
 - Time: 117949
-  Lane: 4
-- Time: 117949
+  Lane: 0
+- Time: 118183
   Lane: 1
 - Time: 118183
   Lane: 2
-- Time: 118183
+- Time: 118418
   Lane: 3
 - Time: 118418
-  Lane: 4
-- Time: 118418
-  Lane: 1
-- Time: 118652
-  Lane: 3
+  Lane: 0
 - Time: 118652
   Lane: 2
-- Time: 118887
-  Lane: 2
+- Time: 118652
+  Lane: 1
 - Time: 118887
   Lane: 1
-- Time: 119003
-  Lane: 4
+- Time: 118887
+  Lane: 0
 - Time: 119003
   Lane: 3
+- Time: 119003
+  Lane: 2
+- Time: 119237
+  Lane: 2
 - Time: 119237
   Lane: 3
-- Time: 119237
-  Lane: 4
+- Time: 119472
+  Lane: 1
 - Time: 119472
   Lane: 2
-- Time: 119472
-  Lane: 3
-- Time: 119706
-  Lane: 3
 - Time: 119706
   Lane: 2
+- Time: 119706
+  Lane: 1
 - Time: 119940
-  Lane: 2
+  Lane: 1
 - Time: 119940
-  Lane: 3
-- Time: 120175
   Lane: 2
 - Time: 120175
   Lane: 1
-- Time: 120409
-  Lane: 2
+- Time: 120175
+  Lane: 0
 - Time: 120409
   Lane: 1
+- Time: 120409
+  Lane: 0
 - Time: 120762
+  Lane: 0
+- Time: 120762
+  Lane: 3
+- Time: 120996
   Lane: 1
-- Time: 120762
-  Lane: 4
 - Time: 120996
   Lane: 2
-- Time: 120996
+- Time: 121230
   Lane: 3
 - Time: 121230
-  Lane: 4
-- Time: 121230
-  Lane: 1
+  Lane: 0
 - Time: 121465
-  Lane: 1
+  Lane: 0
 - Time: 121699
-  Lane: 3
-- Time: 121699
-  Lane: 4
-- Time: 121933
   Lane: 2
+- Time: 121699
+  Lane: 3
 - Time: 121933
   Lane: 1
+- Time: 121933
+  Lane: 0
+- Time: 122168
+  Lane: 2
 - Time: 122168
   Lane: 3
-- Time: 122168
-  Lane: 4
 - Time: 122637
-  Lane: 4
+  Lane: 3
 - Time: 122637
-  Lane: 1
+  Lane: 0
 - Time: 122871
-  Lane: 3
+  Lane: 2
 - Time: 122988
-  Lane: 2
-- Time: 123105
   Lane: 1
 - Time: 123105
-  Lane: 4
+  Lane: 0
+- Time: 123105
+  Lane: 3
 - Time: 123340
-  Lane: 2
+  Lane: 1
 - Time: 123457
+  Lane: 2
+- Time: 123574
   Lane: 3
 - Time: 123574
-  Lane: 4
-- Time: 123574
-  Lane: 1
+  Lane: 0
 - Time: 123808
-  Lane: 3
+  Lane: 2
 - Time: 123926
-  Lane: 2
-- Time: 124043
   Lane: 1
 - Time: 124043
-  Lane: 4
+  Lane: 0
+- Time: 124043
+  Lane: 3
 - Time: 124277
-  Lane: 2
+  Lane: 1
 - Time: 124394
+  Lane: 2
+- Time: 124512
   Lane: 3
 - Time: 124512
-  Lane: 4
-- Time: 124512
-  Lane: 1
+  Lane: 0
 - Time: 124746
-  Lane: 1
+  Lane: 0
 - Time: 124863
+  Lane: 1
+- Time: 124980
   Lane: 2
 - Time: 124980
   Lane: 3
-- Time: 124980
-  Lane: 4
 - Time: 125215
-  Lane: 4
+  Lane: 3
 - Time: 125332
-  Lane: 3
-- Time: 125449
   Lane: 2
 - Time: 125449
   Lane: 1
+- Time: 125449
+  Lane: 0
 - Time: 125683
-  Lane: 1
+  Lane: 0
 - Time: 125801
+  Lane: 1
+- Time: 125918
   Lane: 2
 - Time: 125918
   Lane: 3
-- Time: 125918
-  Lane: 4
 - Time: 126152
-  Lane: 4
+  Lane: 3
 - Time: 126269
-  Lane: 3
-- Time: 126387
   Lane: 2
 - Time: 126387
   Lane: 1
+- Time: 126387
+  Lane: 0
 - Time: 126621
-  Lane: 3
+  Lane: 2
 - Time: 126738
+  Lane: 0
+- Time: 126855
   Lane: 1
 - Time: 126855
-  Lane: 2
-- Time: 126855
-  Lane: 4
+  Lane: 3
 - Time: 127090
-  Lane: 2
+  Lane: 1
 - Time: 127207
-  Lane: 4
-- Time: 127324
   Lane: 3
 - Time: 127324
-  Lane: 1
+  Lane: 2
+- Time: 127324
+  Lane: 0
 - Time: 127558
-  Lane: 3
+  Lane: 2
 - Time: 127676
+  Lane: 0
+- Time: 127793
   Lane: 1
 - Time: 127793
-  Lane: 2
-- Time: 127793
-  Lane: 4
+  Lane: 3
 - Time: 128027
-  Lane: 2
+  Lane: 1
 - Time: 128144
-  Lane: 4
-- Time: 128262
   Lane: 3
 - Time: 128262
-  Lane: 1
+  Lane: 2
+- Time: 128262
+  Lane: 0
   Tail: 128496
 - Time: 128496
-  Lane: 4
+  Lane: 3
   Tail: 128965
 - Time: 128730
-  Lane: 2
-- Time: 128965
   Lane: 1
+- Time: 128965
+  Lane: 0
   Tail: 129199
 - Time: 129199
-  Lane: 2
+  Lane: 1
   Tail: 129433
 - Time: 129433
-  Lane: 3
+  Lane: 2
   Tail: 129668
 - Time: 129668
-  Lane: 2
+  Lane: 1
   Tail: 129902
 - Time: 129902
-  Lane: 3
+  Lane: 2
   Tail: 130137
 - Time: 130137
-  Lane: 4
+  Lane: 3
 - Time: 130137
-  Lane: 1
+  Lane: 0
 - Time: 130371
-  Lane: 1
+  Lane: 0
 - Time: 130488
-  Lane: 3
-- Time: 130605
   Lane: 2
 - Time: 130605
-  Lane: 4
+  Lane: 1
+- Time: 130605
+  Lane: 3
 - Time: 130840
-  Lane: 4
+  Lane: 3
 - Time: 130957
+  Lane: 1
+- Time: 131074
   Lane: 2
 - Time: 131074
-  Lane: 3
-- Time: 131074
-  Lane: 1
+  Lane: 0
 - Time: 131308
-  Lane: 1
+  Lane: 0
 - Time: 131426
+  Lane: 2
+- Time: 131543
   Lane: 3
 - Time: 131543
-  Lane: 4
-- Time: 131543
-  Lane: 2
+  Lane: 1
 - Time: 131777
-  Lane: 4
+  Lane: 3
 - Time: 131894
+  Lane: 1
+- Time: 132012
   Lane: 2
 - Time: 132012
-  Lane: 3
-- Time: 132012
-  Lane: 1
+  Lane: 0
 - Time: 132246
-  Lane: 3
+  Lane: 2
 - Time: 132363
-  Lane: 4
-- Time: 132480
-  Lane: 2
+  Lane: 3
 - Time: 132480
   Lane: 1
+- Time: 132480
+  Lane: 0
 - Time: 132715
-  Lane: 2
+  Lane: 1
 - Time: 132832
-  Lane: 1
+  Lane: 0
+- Time: 132949
+  Lane: 2
 - Time: 132949
   Lane: 3
-- Time: 132949
-  Lane: 4
 - Time: 133183
-  Lane: 3
+  Lane: 2
 - Time: 133301
-  Lane: 4
-- Time: 133418
-  Lane: 2
+  Lane: 3
 - Time: 133418
   Lane: 1
+- Time: 133418
+  Lane: 0
 - Time: 133652
-  Lane: 2
+  Lane: 1
 - Time: 133769
-  Lane: 1
+  Lane: 0
+- Time: 133887
+  Lane: 2
 - Time: 133887
   Lane: 3
-- Time: 133887
-  Lane: 4
 - Time: 134121
-  Lane: 2
+  Lane: 1
 - Time: 134238
+  Lane: 2
+- Time: 134355
   Lane: 3
 - Time: 134355
-  Lane: 4
-- Time: 134355
-  Lane: 1
+  Lane: 0
 - Time: 134590
-  Lane: 3
+  Lane: 2
 - Time: 134707
-  Lane: 2
-- Time: 134824
   Lane: 1
 - Time: 134824
-  Lane: 4
+  Lane: 0
+- Time: 134824
+  Lane: 3
 - Time: 135058
-  Lane: 2
+  Lane: 1
 - Time: 135176
+  Lane: 2
+- Time: 135293
   Lane: 3
 - Time: 135293
-  Lane: 4
-- Time: 135293
-  Lane: 1
+  Lane: 0
 - Time: 135527
-  Lane: 3
+  Lane: 2
 - Time: 135644
-  Lane: 2
-- Time: 135762
-  Lane: 4
-- Time: 135762
   Lane: 1
-- Time: 135996
+- Time: 135762
   Lane: 3
+- Time: 135762
+  Lane: 0
 - Time: 135996
   Lane: 2
-- Time: 136230
-  Lane: 4
-- Time: 136230
+- Time: 135996
   Lane: 1
+- Time: 136230
+  Lane: 3
+- Time: 136230
+  Lane: 0
 - Time: 136465
-  Lane: 4
-- Time: 136699
-  Lane: 2
+  Lane: 3
 - Time: 136699
   Lane: 1
+- Time: 136699
+  Lane: 0
 - Time: 136933
-  Lane: 3
-- Time: 137168
   Lane: 2
+- Time: 137168
+  Lane: 1
 - Time: 137402
-  Lane: 4
+  Lane: 3
