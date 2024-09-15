@@ -2,33 +2,45 @@
 export class AudioTimer {
   audioPlay;
   #k;
-  currentTime = 0;
+  currentTime = -1;
   started = false;
   paused = true;
   #startTimestamp = -1;
   #offset = 0;
+  #startOffset;
 
-  constructor(audioPlay, k) {
+  constructor(audioPlay, k, startOffset = 0) {
     this.audioPlay = audioPlay;
     this.#k = k;
+    this.#startOffset = startOffset;
     let isPaused = false;
+    let isPastOffset = false;
     let offsetStart = -1;
     this.#k.onUpdate(() => {
-      this.paused = this.audioPlay.paused;
+      if (this.currentTime >= 0) {
+        if (!isPastOffset) this.audioPlay.paused = false;
+        isPastOffset = true;
+        this.paused = this.audioPlay.paused;
+      } else {
+        isPastOffset = false;
+        this.audioPlay.paused = true;
+      }
 
       if (!this.paused) {
         if (isPaused) this.#offset += performance.now() - offsetStart;
         isPaused = false;
-        this.currentTime = (performance.now() - this.#startTimestamp) - this.#offset;
+        this.currentTime = ((performance.now() - this.#startTimestamp) - this.#offset) - this.#startOffset;
       } else {
         if (!isPaused) offsetStart = performance.now();
         isPaused = true;
       }
 
-      let audioDiff = this.currentTime - this.audioPlay.time() * 1000;
+      if (isPastOffset) {
+        let audioDiff = this.currentTime - this.audioPlay.time() * 1000;
 
-      if (Math.abs(audioDiff) >= 60) {
-        this.#offset += audioDiff
+        if (Math.abs(audioDiff) >= 60) {
+          this.#offset += audioDiff
+        }
       }
     })
   }

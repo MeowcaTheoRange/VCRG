@@ -5,14 +5,14 @@ export class DebugRenderer {
   #judgementmanager;
 
   gameObj;
-  width; height; hitHeight; noteSize;
+  width; height; genheight; hitHeight; noteSize;
 
   constructor({
     k,
     timer,
     notemanager,
     judgementmanager
-  }, { width, height, hitHeight = 50, noteSize = 50 }, comps) {
+  }, { width, height, genHeight = height, hitHeight = 50, noteSize = 50 }, comps) {
     this.#k = k;
     this.#timer = timer;
     this.#notemanager = notemanager;
@@ -24,7 +24,11 @@ export class DebugRenderer {
       this.#k.color(this.#k.BLACK),
       ...comps
     ]);
-    this.width = width; this.height = height; this.hitHeight = hitHeight; this.noteSize = noteSize;
+    this.width = width;
+    this.height = height;
+    this.genHeight = genHeight;
+    this.hitHeight = hitHeight;
+    this.noteSize = noteSize;
 
     this.gameObj.onDraw(() => {
       const currentTime = this.#timer.currentTime;
@@ -40,7 +44,7 @@ export class DebugRenderer {
 
       currentVisible.splice(0, 500).forEach((note) => {
         const timePos = (note.svtm - timeOffset) / this.#notemanager.noteSpeed;
-        const actualPos = (timePos * (height - this.hitHeight)) + this.hitHeight;
+        const actualPos = (timePos * (this.genHeight - this.hitHeight)) + this.hitHeight;
 
         const laneWidth = this.width / this.#notemanager.lanes;
         const curX = (laneWidth * note.lane) + ((laneWidth - this.noteSize) / 2);
@@ -70,9 +74,9 @@ export class DebugRenderer {
           const theNote = this.#notemanager.getNoteAtTimeInLane(testedJudgement.note, lane);
           if (theNote == null) return;
           const timePos = (theNote.svtm - timeOffset) / this.#notemanager.noteSpeed;
-          const actualPos = (timePos * (height - this.hitHeight)) + this.hitHeight;
+          const actualPos = (timePos * (this.genHeight - this.hitHeight)) + this.hitHeight;
           const timePosJg = (testedJudgement.note - timeOffset) / this.#notemanager.noteSpeed;
-          const actualPosJg = (timePosJg * (height - this.hitHeight)) + this.hitHeight;
+          const actualPosJg = (timePosJg * (this.genHeight - this.hitHeight)) + this.hitHeight;
 
           this.#k.drawRect({
             height: Math.abs(actualPos - this.hitHeight),

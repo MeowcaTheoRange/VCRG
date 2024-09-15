@@ -19,11 +19,11 @@ String.prototype.replaceAt = function (index, replacement) {
 }
 
 async function doGetAndCompile() {
-  const pow = await MapHandler.getMapDiff("princess_of_winter", "maps/insane.yml");
-  k.loadMusic("pow", AssetHandler.buildURL("maps/princess_of_winter/audio.mp3"));
+  const pow = await MapHandler.getMapDiff("test", "test.yml");
+  k.loadMusic("pow", AssetHandler.buildURL("maps/test/audio.mp3"));
 
   const music = k.play("pow");
-  const timer = new AudioTimer(music, k);
+  const timer = new AudioTimer(music, k, 1000);
   const notemanager = new NoteManager(pow.NoteMap, pow.VeloMap, {
     noteSpeed: 500,
     lanes: pow.Lanes
@@ -37,7 +37,8 @@ async function doGetAndCompile() {
   }, {
     width: 300,
     height: 500,
-    hitHeight: 50
+    genHeight: 0,
+    hitHeight: 450
   }, [
     k.pos(50, 50)
   ]
