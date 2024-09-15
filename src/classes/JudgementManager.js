@@ -88,6 +88,11 @@ export class JudgementManager {
   createJudgementAtPos(time, lane) {
     const judgementTest = this.testJudgementAtPos(time, lane);
 
+    if (judgementTest == null)
+      return; // don't create judgement
+    else
+      noteTimeJudgementIndex = this.judgementConfig.judgements[judgementTest.judgementIdx];
+
     // search for last judgement
     const judgementTimdex = ArrayUtils.getClosestStart(this.judgementList, time, (arr => arr.time));
     let lastJudgement;
@@ -100,11 +105,6 @@ export class JudgementManager {
       };
     else
       lastJudgement = this.judgementList[judgementTimdex];
-
-    if (judgementTest == null)
-      return; // don't create judgement
-    else
-      noteTimeJudgementIndex = this.judgementConfig.judgements[judgementTest.judgementIdx];
 
     if (noteTimeJudgementIndex.percent <= this.judgementConfig.comboBreakPercent)
       judgementTest.currentCombo = 0;
