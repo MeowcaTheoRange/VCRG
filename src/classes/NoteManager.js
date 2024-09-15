@@ -27,7 +27,7 @@ export class NoteManager {
     this.noteList.sort((a, b) => a[0] - b[0]);
 
     velList.forEach(({ Time: time, Scale: scale }) => {
-      if (scale == null) console.log(scale = 0);
+      if (scale == null) scale = 0;
       this.velList.push([time, scale]);
     });
     this.velList.sort((a, b) => a[0] - b[0]);
@@ -107,9 +107,6 @@ export class NoteManager {
     const noteidx = this.noteSVTimeList[noteidxidx][1]; // idgaf if it crashes
     const result = [];
 
-    // console.log(noteidx);
-    let lowerbound, upperbound, lbt = time, ubt = time;
-
     let i = noteidx;
     while (true) {
       const currentNote = this.noteObjectList[i];
@@ -117,11 +114,9 @@ export class NoteManager {
         break;
       } else {
         result.push(currentNote);
-        ubt = currentNote.svtm;
       }
       i++;
     }
-    upperbound = i;
     i = noteidx;
     while (true) {
       const currentNote = this.noteObjectList[i];
@@ -129,20 +124,9 @@ export class NoteManager {
         break;
       } else {
         result.unshift(currentNote);
-        lbt = currentNote.svtm;
       }
       i--;
     }
-    lowerbound = i;
-    debug.log(
-      "\nLBIDX " + lowerbound +
-      "\nMBIDX " + noteidx +
-      "\nUBIDX " + upperbound +
-      "\nLBT " + lbt +
-      "\nMBT " + time +
-      "\nUBT " + ubt +
-      "\nCR " + result.length
-    );
     return result;
   }
 }
