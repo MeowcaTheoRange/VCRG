@@ -1,0 +1,26 @@
+MetaVer: 1
+Name: femboy music
+Artists:
+  - kur0myx
+Creators:
+  - ESV Zeph
+Mirrors:
+  - Name: MeowcaTheoRange
+    URL: https://abtmtr.link/
+Sources:
+  - Name: Quaver
+    URL: https://quavergame.com/
+Tags:
+  - sv 
+  - esv
+  - chromazeph
+  - hyperflip
+  - dariacore
+  - electronic
+  - jacks
+  - jumpstreams
+  - streams
+AudioFile: audio.mp3
+Maps:
+  - maps/fragile.yml
+Description: This is a VCRG converted version of a map created at 1698601693000.
