@@ -32,7 +32,7 @@ export class DebugRenderer {
 
     this.gameObj.onDraw(() => {
       const currentTime = this.#timer.currentTime;
-      const timeOffset = this.#notemanager.getPlayheadSVPosition(currentTime);
+      const timeOffset = this.#notemanager.getCalculatedSVPosition(currentTime);
       const currentVisible = this.#notemanager.getVisibleNotes(timeOffset);
 
       this.#k.drawRect({
@@ -101,6 +101,61 @@ export class DebugRenderer {
           });
         }
       }
+
+      this.#judgementmanager.judgementList.forEach((jdg) => {
+        const jdg_timeOffset = this.#notemanager.getCalculatedSVPosition(jdg.time);
+
+        const timePos = (jdg_timeOffset - timeOffset) / this.#notemanager.noteSpeed;
+        if (timePos < -1) return;
+
+        const actualPos = (timePos * (this.genHeight - this.hitHeight)) + this.hitHeight;
+
+        const laneWidth = this.width / this.#notemanager.lanes;
+        const curX = (laneWidth * jdg.lane);
+
+        this.#k.drawRect({
+          height: 2,
+          pos: this.#k.vec2(curX, actualPos),
+          width: laneWidth,
+          color: this.#k.RED,
+        });
+        this.#k.drawText({
+          pos: this.#k.vec2(curX, actualPos - 8),
+          text: (jdg.judgementIdx / (this.#judgementmanager.judgementConfig.judgements.length - 1)).toFixed(2),
+          width: laneWidth,
+          align: "center",
+          size: 16
+        });
+      });
+
+      const lastJudgement = this.#judgementmanager.judgementList.at(-1);
+
+      this.#k.drawText({
+        pos: this.#k.vec2(0, this.height / 2 - 24),
+        text: (lastJudgement?.currentCombo ?? 0),
+        width: this.width,
+        align: "center",
+        size: 16
+      });
+
+      this.#k.drawText({
+        pos: this.#k.vec2(0, this.height / 2 - 8),
+        text: (this.#judgementmanager.judgementConfig.judgements[
+          lastJudgement?.judgementIdx ?? 0
+        ].id ?? "NULL") + " " + ((lastJudgement?.time ?? 0) - (lastJudgement?.note ?? 0)).toFixed(2) + "ms",
+        width: this.width,
+        align: "center",
+        size: 16
+      });
+
+      this.#k.drawText({
+        pos: this.#k.vec2(0, this.height / 2 + 8),
+        text: this.#judgementmanager.judgementAverage.toFixed(2) + "% " +
+          this.#judgementmanager.errorAverage.toFixed(2) + "ms",
+        width: this.width,
+        align: "center",
+        size: 16
+      });
     });
   }
 }

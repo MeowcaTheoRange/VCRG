@@ -83,7 +83,7 @@ export class NoteManager {
     });
   }
 
-  getPlayheadSVPosition(time) {
+  getCalculatedSVPosition(time) {
     const pSVIdx = ArrayUtils.getClosestStart(this.velObjectList, time, x => x.time);
     let svobj = this.velObjectList[pSVIdx];
     if (svobj == null) svobj = { scale: 1, offset: 0 };

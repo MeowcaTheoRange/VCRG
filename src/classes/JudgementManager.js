@@ -3,6 +3,7 @@ import { ArrayUtils } from "../utils/ArrayUtils";
 export class JudgementManager {
   judgementList = [];
   judgementAverage = 0;
+  errorAverage = 0;
 
   noteManager;
 
@@ -14,26 +15,32 @@ export class JudgementManager {
   constructor(noteManager, {
     judgements = [
       {
+        id: "MARV",
         percent: 100,
         window: 18
       },
       {
+        id: "PERF",
         percent: 98.25,
         window: 43
       },
       {
+        id: "GREAT",
         percent: 65,
         window: 76
       },
       {
+        id: "GOOD",
         percent: 25,
         window: 106
       },
       {
-        percent: -100,
+        id: "OKAY",
+        percent: 12.5,
         window: 127
       },
       {
+        id: "MISS",
         percent: -50,
         window: 164
       }
@@ -72,6 +79,7 @@ export class JudgementManager {
     let newJudgement = {
       judgementIdx: -1,
       time,
+      lane,
       note: closestNote
     };
 
@@ -88,6 +96,7 @@ export class JudgementManager {
   createJudgementAtPos(time, lane) {
     const judgementTest = this.testJudgementAtPos(time, lane);
 
+    let noteTimeJudgementIndex;
     if (judgementTest == null)
       return; // don't create judgement
     else
@@ -95,22 +104,29 @@ export class JudgementManager {
 
     // search for last judgement
     const judgementTimdex = ArrayUtils.getClosestStart(this.judgementList, time, (arr => arr.time));
-    let lastJudgement;
 
-    if (judgementTimdex < 0)
+    let lastJudgement = this.judgementList[judgementTimdex];
+    if (lastJudgement == null)
       // hallucinate a judgement
       lastJudgement = {
         time: 0,
         currentCombo: 0
       };
-    else
-      lastJudgement = this.judgementList[judgementTimdex];
 
     if (noteTimeJudgementIndex.percent <= this.judgementConfig.comboBreakPercent)
       judgementTest.currentCombo = 0;
     else if (noteTimeJudgementIndex.percent >= this.judgementConfig.comboCountPercent)
       judgementTest.currentCombo = lastJudgement.currentCombo + 1;
 
-    this.judgementList.splice(judgementTimdex + 1, 0, newJudgement);
+    this.judgementList.splice(judgementTimdex + 1, 0, judgementTest);
+
+    this.judgementAverage =
+      (this.judgementAverage * (this.judgementList.length - 1) +
+        this.judgementConfig.judgements[judgementTest.judgementIdx].percent) /
+      this.judgementList.length;
+    this.errorAverage =
+      (this.errorAverage * (this.judgementList.length - 1) +
+        judgementTest.time - judgementTest.note) /
+      this.judgementList.length;
   }
 }

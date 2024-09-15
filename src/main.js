@@ -19,8 +19,8 @@ String.prototype.replaceAt = function (index, replacement) {
 }
 
 async function doGetAndCompile() {
-  const pow = await MapHandler.getMapDiff("test", "test.yml");
-  k.loadMusic("pow", AssetHandler.buildURL("maps/test/audio.mp3"));
+  const pow = await MapHandler.getMapDiff("princess_of_winter", "maps/insane.yml");
+  k.loadMusic("pow", AssetHandler.buildURL("maps/princess_of_winter/audio.mp3"));
 
   const music = k.play("pow");
   const timer = new AudioTimer(music, k, 1000);
@@ -30,6 +30,10 @@ async function doGetAndCompile() {
   });
   const judgementmanager = new JudgementManager(notemanager, {});
 
+  ["s", "d", "l", ";"].forEach((key, i) => k.onKeyPress(key, () => {
+    judgementmanager.createJudgementAtPos(timer.currentTime, i);
+  }));
+
   timer.start();
 
   const renderer = new DebugRenderer({
@@ -37,8 +41,8 @@ async function doGetAndCompile() {
   }, {
     width: 300,
     height: 500,
-    genHeight: 0,
-    hitHeight: 450
+    genHeight: 500,
+    hitHeight: 50
   }, [
     k.pos(50, 50)
   ]
