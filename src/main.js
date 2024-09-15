@@ -18,8 +18,8 @@ String.prototype.replaceAt = function (index, replacement) {
 }
 
 async function doGetAndCompile() {
-  const pow = await MapHandler.getMapDiff("floating_point", "maps/normal.yml");
-  k.loadMusic("pow", AssetHandler.buildURL("maps/floating_point/audio.mp3"));
+  const pow = await MapHandler.getMapDiff("apparently_very_complex", "maps/elegy.yml");
+  k.loadMusic("pow", AssetHandler.buildURL("maps/apparently_very_complex/audio.mp3"));
 
   const music = k.play("pow");
   const timer = new AudioTimer(music, k);
@@ -106,7 +106,7 @@ async function doGetAndCompile() {
           opacity: (testedJudgement.judgementIdx / (judgementmanager.judgementConfig.judgements.length - 1))
         });
         k.drawText({
-          pos: k.vec2((lane * 100) + 100, (actualPos - whereIsZeroInPx) / 2 + (8 + whereIsZeroInPx)),
+          pos: k.vec2((lane * 100) + 100, (actualPos - whereIsZeroInPx) / 2 + (whereIsZeroInPx - 8)),
           text: (testedJudgement.judgementIdx / (judgementmanager.judgementConfig.judgements.length - 1)).toFixed(2),
           size: 16
         });

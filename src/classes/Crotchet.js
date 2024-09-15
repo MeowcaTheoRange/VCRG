@@ -1,3 +1,4 @@
+// TODO: what even is the point of this class
 export class Crotchet {
   static spm = 60;
   static msps = 1000;

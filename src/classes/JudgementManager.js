@@ -1,5 +1,4 @@
 import { ArrayUtils } from "../utils/ArrayUtils";
-import { NoteManager } from "./NoteManager";
 
 export class JudgementManager {
   judgementList = [];
@@ -87,29 +86,13 @@ export class JudgementManager {
   }
 
   createJudgementAtPos(time, lane) {
-    const nni = ArrayUtils.getClosestEnd(this.noteManager.noteTimeLaneList[lane], time, o => o[0]);
-    const pni = nni - 1;
-    let prevNote;
-    let nextNote;
-
-    // LINK - http://tom7.org/nand/
-    if (pni < 0)
-      prevNote = -Infinity; // "fuck it, we ball" (will never get picked)
-    else
-      prevNote = this.noteManager.noteTimeLaneList[lane][pni][0];
-
-    if (nni < 0)
-      nextNote = Infinity; // "fuck it, we ball" (will never get picked)
-    else
-      nextNote = this.noteManager.noteTimeLaneList[lane][nni][0];
-
-    let closestNote = (nextNote - time) <= this.#tjcw ? nextNote : prevNote;
+    const judgementTest = this.testJudgementAtPos(time, lane);
 
     // search for last judgement
     const judgementTimdex = ArrayUtils.getClosestStart(this.judgementList, time, (arr => arr.time));
     let lastJudgement;
 
-    if (ntji < 0)
+    if (judgementTimdex < 0)
       // hallucinate a judgement
       lastJudgement = {
         time: 0,
@@ -118,27 +101,15 @@ export class JudgementManager {
     else
       lastJudgement = this.judgementList[judgementTimdex];
 
-    let newJudgement = {
-      judgementIdx: 0,
-      time,
-      note: closestNote,
-      currentCombo: 0
-    };
-
-    const ntji = ArrayUtils.getClosestEnd(this.judgementConfig.judgements, closestNote, (arr => arr.window));
-    let noteTimeJudgementIndex;
-
-    if (ntji < 0)
+    if (judgementTest == null)
       return; // don't create judgement
     else
-      noteTimeJudgementIndex = this.judgementConfig.judgements[ntji];
+      noteTimeJudgementIndex = this.judgementConfig.judgements[judgementTest.judgementIdx];
 
     if (noteTimeJudgementIndex.percent <= this.judgementConfig.comboBreakPercent)
-      newJudgement.currentCombo = 0;
+      judgementTest.currentCombo = 0;
     else if (noteTimeJudgementIndex.percent >= this.judgementConfig.comboCountPercent)
-      newJudgement.currentCombo = lastJudgement.currentCombo + 1;
-
-    newJudgement.judgementIdx = ntji;
+      judgementTest.currentCombo = lastJudgement.currentCombo + 1;
 
     this.judgementList.splice(judgementTimdex + 1, 0, newJudgement);
   }
