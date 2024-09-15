@@ -2,7 +2,6 @@ import kaplay from "kaplay";
 import "kaplay/global";
 import { MapHandler } from "./assets/MapHandler";
 import { AssetHandler } from "./assets/AssetHandler";
-import { ArrayUtils } from "./utils/ArrayUtils";
 import { AudioTimer } from "./classes/AudioTimer";
 import { NoteManager } from "./classes/NoteManager";
 import { JudgementManager } from "./classes/JudgementManager";

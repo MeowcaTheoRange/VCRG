@@ -55,7 +55,7 @@ export class JudgementManager {
     this.#tjcw = this.judgementConfig.judgements.at(-1).window;
   }
 
-  testJudgementAtPos(time, lane) {
+  testJudgementAtPos(time, lane, force) {
     const nni = ArrayUtils.getClosestEnd(this.noteManager.noteTimeLaneList[lane], time, o => o[0]);
     const pni = nni - 1; // turns out you usually DON'T have to do a second binary search
     let prevNote;
@@ -74,7 +74,9 @@ export class JudgementManager {
 
     let closestNote = nextNote - time <= this.#tjcw ? nextNote :
       Math.abs(prevNote - time) <= this.#tjcw ? prevNote : null;
-    if (closestNote == null) return;
+    if (closestNote == null)
+      if (force) closestNote = prevNote;
+      else return;
 
     let newJudgement = {
       judgementIdx: -1,
@@ -93,8 +95,8 @@ export class JudgementManager {
     return newJudgement;
   }
 
-  createJudgementAtPos(time, lane) {
-    const judgementTest = this.testJudgementAtPos(time, lane);
+  createJudgementAtPos(time, lane, force) {
+    const judgementTest = this.testJudgementAtPos(time, lane, force);
 
     let noteTimeJudgementIndex;
     if (judgementTest == null)
