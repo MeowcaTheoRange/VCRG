@@ -3,6 +3,7 @@ export class DebugRenderer {
   #timer;
   #notemanager;
   #judgementmanager;
+  #statemanager;
 
   gameObj;
   width; height; genheight; hitHeight; noteSize;
@@ -11,12 +12,14 @@ export class DebugRenderer {
     k,
     timer,
     notemanager,
-    judgementmanager
+    judgementmanager,
+    statemanager
   }, { width, height, genHeight = height, hitHeight = 50, noteSize = 50 }, comps) {
     this.#k = k;
     this.#timer = timer;
     this.#notemanager = notemanager;
     this.#judgementmanager = judgementmanager;
+    this.#statemanager = statemanager;
 
     this.gameObj = this.#k.make([
       this.#k.rect(width, height),
@@ -43,12 +46,14 @@ export class DebugRenderer {
       });
 
       currentVisible.splice(0, 500).forEach((note) => {
+        const judgement = this.#statemanager.getNoteJudgement(note.id);
+        if (judgement != null) return;
+
         const timePos = (note.svtm - timeOffset) / this.#notemanager.noteSpeed;
         const actualPos = (timePos * (this.genHeight - this.hitHeight)) + this.hitHeight;
 
         const laneWidth = this.width / this.#notemanager.lanes;
         const curX = (laneWidth * note.lane) + ((laneWidth - this.noteSize) / 2);
-
         this.#k.drawRect({
           pos: this.#k.vec2(curX, actualPos),
           width: this.noteSize,
@@ -57,7 +62,7 @@ export class DebugRenderer {
         });
         this.#k.drawText({
           pos: this.#k.vec2(curX, actualPos),
-          text: timePos.toFixed(2),
+          text: note.id + "\n" + timePos.toFixed(2),
           width: this.noteSize,
           align: "center",
           size: 16
@@ -71,11 +76,15 @@ export class DebugRenderer {
         const curX = (laneWidth * lane) + ((laneWidth - this.noteSize) / 2);
 
         if (testedJudgement != null) {
-          const theNote = this.#notemanager.getNoteAtTimeInLane(testedJudgement.note, lane);
-          if (theNote == null) return;
+          const judgement = this.#statemanager.getNoteJudgement(testedJudgement.note);
+          if (judgement != null) continue;
+
+          const jgtime = (testedJudgement.time + testedJudgement.error);
+          const theNote = this.#notemanager.getNoteAtTimeInLane(jgtime, lane);
+          if (theNote == null) continue;
           const timePos = (theNote.svtm - timeOffset) / this.#notemanager.noteSpeed;
           const actualPos = (timePos * (this.genHeight - this.hitHeight)) + this.hitHeight;
-          const timePosJg = (testedJudgement.note - timeOffset) / this.#notemanager.noteSpeed;
+          const timePosJg = ((testedJudgement.time + testedJudgement.error) - timeOffset) / this.#notemanager.noteSpeed;
           const actualPosJg = (timePosJg * (this.genHeight - this.hitHeight)) + this.hitHeight;
 
           this.#k.drawRect({
@@ -102,33 +111,33 @@ export class DebugRenderer {
         }
       }
 
-      this.#judgementmanager.judgementList.forEach((jdg) => {
-        const jdg_timeOffset = this.#notemanager.getCalculatedSVPosition(jdg.time);
+      // this.#statemanager.judgementList.forEach((jdg) => {
+      //   const jdg_timeOffset = this.#notemanager.getCalculatedSVPosition(jdg.time);
 
-        const timePos = (jdg_timeOffset - timeOffset) / this.#notemanager.noteSpeed;
-        if (timePos < -1) return;
+      //   const timePos = (jdg_timeOffset - timeOffset) / this.#notemanager.noteSpeed;
+      //   if (timePos < -1) return;
 
-        const actualPos = (timePos * (this.genHeight - this.hitHeight)) + this.hitHeight;
+      //   const actualPos = (timePos * (this.genHeight - this.hitHeight)) + this.hitHeight;
 
-        const laneWidth = this.width / this.#notemanager.lanes;
-        const curX = (laneWidth * jdg.lane);
+      //   const laneWidth = this.width / this.#notemanager.lanes;
+      //   const curX = (laneWidth * jdg.lane);
 
-        this.#k.drawRect({
-          height: 2,
-          pos: this.#k.vec2(curX, actualPos),
-          width: laneWidth,
-          color: this.#k.RED,
-        });
-        this.#k.drawText({
-          pos: this.#k.vec2(curX, actualPos - 8),
-          text: (jdg.judgementIdx / (this.#judgementmanager.judgementConfig.judgements.length - 1)).toFixed(2),
-          width: laneWidth,
-          align: "center",
-          size: 16
-        });
-      });
+      //   this.#k.drawRect({
+      //     height: 2,
+      //     pos: this.#k.vec2(curX, actualPos),
+      //     width: laneWidth,
+      //     color: this.#k.RED,
+      //   });
+      //   this.#k.drawText({
+      //     pos: this.#k.vec2(curX, actualPos - 8),
+      //     text: (jdg.judgementIdx / (this.#judgementmanager.judgementConfig.judgements.length - 1)).toFixed(2),
+      //     width: laneWidth,
+      //     align: "center",
+      //     size: 16
+      //   });
+      // });
 
-      const lastJudgement = this.#judgementmanager.judgementList.at(-1);
+      const lastJudgement = this.#statemanager.judgementList.at(-1);
 
       this.#k.drawText({
         pos: this.#k.vec2(0, this.height / 2 - 24),
@@ -142,7 +151,7 @@ export class DebugRenderer {
         pos: this.#k.vec2(0, this.height / 2 - 8),
         text: (this.#judgementmanager.judgementConfig.judgements[
           lastJudgement?.judgementIdx ?? 0
-        ].id ?? "NULL") + " " + ((lastJudgement?.time ?? 0) - (lastJudgement?.note ?? 0)).toFixed(2) + "ms",
+        ].id ?? "NULL") + " " + ((lastJudgement?.error ?? 0)).toFixed(2) + "ms",
         width: this.width,
         align: "center",
         size: 16
@@ -150,8 +159,8 @@ export class DebugRenderer {
 
       this.#k.drawText({
         pos: this.#k.vec2(0, this.height / 2 + 8),
-        text: this.#judgementmanager.judgementAverage.toFixed(2) + "% " +
-          this.#judgementmanager.errorAverage.toFixed(2) + "ms",
+        text: this.#statemanager.judgementAverage.toFixed(2) + "% " +
+          this.#statemanager.errorAverage.toFixed(2) + "ms",
         width: this.width,
         align: "center",
         size: 16

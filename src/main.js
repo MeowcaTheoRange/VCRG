@@ -6,6 +6,7 @@ import { AudioTimer } from "./classes/AudioTimer";
 import { NoteManager } from "./classes/NoteManager";
 import { JudgementManager } from "./classes/JudgementManager";
 import { DebugRenderer } from "./classes/render/DebugRenderer";
+import { StateManager } from "./classes/StateManager";
 
 const k = kaplay({
   logMax: 1,
@@ -18,25 +19,33 @@ String.prototype.replaceAt = function (index, replacement) {
 }
 
 async function doGetAndCompile() {
-  const pow = await MapHandler.getMapDiff("princess_of_winter", "maps/insane.yml");
-  k.loadMusic("pow", AssetHandler.buildURL("maps/princess_of_winter/audio.mp3"));
+  const pow = await MapHandler.getMapDiff("femboy_music", "maps/fragile.yml");
+  k.loadMusic("pow", AssetHandler.buildURL("maps/femboy_music/audio.mp3"));
 
   const music = k.play("pow");
-  const timer = new AudioTimer(music, k, 1000);
+  const timer = new AudioTimer(music, k, {
+    startOffset: 1000,
+    gameOffset: -32
+  });
   const notemanager = new NoteManager(pow.NoteMap, pow.VeloMap, {
     noteSpeed: 500,
     lanes: pow.Lanes
   });
   const judgementmanager = new JudgementManager(notemanager, {});
+  const statemanager = new StateManager({
+    timer, judgementmanager, notemanager
+  });
 
   ["s", "d", "l", ";"].forEach((key, i) => k.onKeyPress(key, () => {
-    judgementmanager.createJudgementAtPos(timer.currentTime, i);
+    statemanager.createJudgementAtPos(timer.currentTime, i);
   }));
+
+  // TODO: implement untapping (miss when not hitting note)
 
   timer.start();
 
   const renderer = new DebugRenderer({
-    k, timer, notemanager, judgementmanager
+    k, timer, notemanager, judgementmanager, statemanager
   }, {
     width: 300,
     height: 500,
@@ -46,6 +55,10 @@ async function doGetAndCompile() {
     k.pos(50, 50)
   ]
   );
+
+  k.onUpdate(() => {
+    statemanager.stateUpdate();
+  });
 
   k.add(renderer.gameObj);
 }

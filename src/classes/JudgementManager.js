@@ -1,16 +1,9 @@
 import { ArrayUtils } from "../utils/ArrayUtils";
 
 export class JudgementManager {
-  judgementList = [];
-  judgementAverage = 0;
-  errorAverage = 0;
-
   noteManager;
-
   judgementConfig = {};
-
-  #tjcw;
-
+  tjcw;
 
   constructor(noteManager, {
     judgements = [
@@ -52,40 +45,41 @@ export class JudgementManager {
     this.judgementConfig.judgements = judgements;
     this.judgementConfig.comboBreakPercent = comboBreakPercent;
     this.judgementConfig.comboCountPercent = comboCountPercent;
-    this.#tjcw = this.judgementConfig.judgements.at(-1).window;
+    this.tjcw = this.judgementConfig.judgements.at(-1).window;
   }
 
   testJudgementAtPos(time, lane, force) {
-    const nni = ArrayUtils.getClosestEnd(this.noteManager.noteTimeLaneList[lane], time, o => o[0]);
+    const nni = ArrayUtils.getClosestEnd(this.noteManager.noteTimeLaneList[lane], time, o => o[0], -1);
     const pni = nni - 1; // turns out you usually DON'T have to do a second binary search
     let prevNote;
     let nextNote;
 
     // LINK - http://tom7.org/nand/
     if (pni < 0)
-      prevNote = -Infinity; // "fuck it, we ball" (will never get picked)
+      prevNote = [-Infinity, 0]; // "fuck it, we ball" (will never get picked)
     else
-      prevNote = this.noteManager.noteTimeLaneList[lane][pni][0];
+      prevNote = this.noteManager.noteTimeLaneList[lane][pni];
 
     if (nni < 0)
-      nextNote = Infinity; // "fuck it, we ball" (will never get picked)
+      nextNote = [Infinity, 0]; // "fuck it, we ball" (will never get picked)
     else
-      nextNote = this.noteManager.noteTimeLaneList[lane][nni][0];
+      nextNote = this.noteManager.noteTimeLaneList[lane][nni];
 
-    let closestNote = nextNote - time <= this.#tjcw ? nextNote :
-      Math.abs(prevNote - time) <= this.#tjcw ? prevNote : null;
-    if (closestNote == null)
-      if (force) closestNote = prevNote;
-      else return;
+    let closestNote;
+    let closestNoteIdx;
+    if (nextNote[0] - time <= this.tjcw) closestNote = nextNote[0], closestNoteIdx = nextNote[1];
+    else if (Math.abs(prevNote[0] - time) <= this.tjcw) closestNote = prevNote[0], closestNoteIdx = prevNote[1];
+    else if (force) closestNote = prevNote[0], closestNoteIdx = prevNote[1];
+    else return;
 
     let newJudgement = {
       judgementIdx: -1,
       time,
-      lane,
-      note: closestNote
+      note: closestNoteIdx,
+      error: closestNote - time
     };
 
-    const ntji = ArrayUtils.getClosestEnd(this.judgementConfig.judgements, Math.abs(closestNote - time), (arr => arr.window));
+    const ntji = ArrayUtils.getClosestEnd(this.judgementConfig.judgements, Math.abs(newJudgement.error), (arr => arr.window));
 
     if (ntji < 0)
       return null;
@@ -93,42 +87,5 @@ export class JudgementManager {
     newJudgement.judgementIdx = ntji;
 
     return newJudgement;
-  }
-
-  createJudgementAtPos(time, lane, force) {
-    const judgementTest = this.testJudgementAtPos(time, lane, force);
-
-    let noteTimeJudgementIndex;
-    if (judgementTest == null)
-      return; // don't create judgement
-    else
-      noteTimeJudgementIndex = this.judgementConfig.judgements[judgementTest.judgementIdx];
-
-    // search for last judgement
-    const judgementTimdex = ArrayUtils.getClosestStart(this.judgementList, time, (arr => arr.time));
-
-    let lastJudgement = this.judgementList[judgementTimdex];
-    if (lastJudgement == null)
-      // hallucinate a judgement
-      lastJudgement = {
-        time: 0,
-        currentCombo: 0
-      };
-
-    if (noteTimeJudgementIndex.percent <= this.judgementConfig.comboBreakPercent)
-      judgementTest.currentCombo = 0;
-    else if (noteTimeJudgementIndex.percent >= this.judgementConfig.comboCountPercent)
-      judgementTest.currentCombo = lastJudgement.currentCombo + 1;
-
-    this.judgementList.splice(judgementTimdex + 1, 0, judgementTest);
-
-    this.judgementAverage =
-      (this.judgementAverage * (this.judgementList.length - 1) +
-        this.judgementConfig.judgements[judgementTest.judgementIdx].percent) /
-      this.judgementList.length;
-    this.errorAverage =
-      (this.errorAverage * (this.judgementList.length - 1) +
-        judgementTest.time - judgementTest.note) /
-      this.judgementList.length;
   }
 }

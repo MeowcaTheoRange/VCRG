@@ -1,8 +1,8 @@
 export class ArrayUtils {
-  static getClosestStart(arr, target, func = _ => _) {
+  static getClosestStart(arr, target, func = _ => _, error = 0) {
     let floor = 0;
     let ceil = arr.length - 1;
-    let closest = 0;
+    let closest = error;
 
     while (floor <= ceil) {
       const searchPoint = Math.floor((floor + ceil) / 2);

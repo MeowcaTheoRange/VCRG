@@ -16,7 +16,7 @@ export class NoteManager {
 
   constructor(noteList, velList, {
     noteSpeed = 1000,
-    lanes = 4
+    lanes = 4,
   }) {
     this.noteSpeed = noteSpeed;
     this.lanes = lanes;
@@ -63,7 +63,7 @@ export class NoteManager {
       this.noteSVTimeList.push([newPos, i]);
       this.noteTimeLaneList[lane].push([time, i]);
       this.noteObjectList.push({
-        svtm: newPos, lane, tail, time
+        svtm: newPos, lane, tail, time, id: i
       });
     });
   }
