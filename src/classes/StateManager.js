@@ -91,11 +91,15 @@ export class StateManager {
   createJudgementAtPos(time, lane, force) {
     const judgementTest = this.judgementmanager.testJudgementAtPos(time, lane, force);
 
-    let noteTimeJudgementIndex;
+    let prevNote;
     if (judgementTest == null)
-      return; // don't create judgement
-    else
-      noteTimeJudgementIndex = this.judgementmanager.judgementConfig.judgements[judgementTest.judgementIdx];
+      return;
+    else prevNote = this.notemanager.noteObjectList[judgementTest.note];
+
+    // if (this.getNoteJudgement(judgementTest.note)) return this.createJudgementAtPos(this.notemanager.noteObjectList[judgementTest.note + 1].time, lane, force);
+    if (this.getNoteJudgement(judgementTest.note)) return;
+
+    let noteTimeJudgementIndex = this.judgementmanager.judgementConfig.judgements[judgementTest.judgementIdx];
 
     // search for last judgement
     const judgementTimdex = ArrayUtils.getClosestStart(this.judgementList, time, (arr => arr.time));
@@ -107,9 +111,6 @@ export class StateManager {
         time: 0,
         currentCombo: 0
       };
-
-    if (lastJudgement.note == judgementTest.note)
-      return;
 
     if (noteTimeJudgementIndex.percent <= this.judgementmanager.judgementConfig.comboBreakPercent)
       judgementTest.currentCombo = 0;

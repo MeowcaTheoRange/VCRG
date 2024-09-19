@@ -19,13 +19,13 @@ String.prototype.replaceAt = function (index, replacement) {
 }
 
 async function doGetAndCompile() {
-  const pow = await MapHandler.getMapDiff("femboy_music", "maps/fragile.yml");
-  k.loadMusic("pow", AssetHandler.buildURL("maps/femboy_music/audio.mp3"));
+  const pow = await MapHandler.getMapDiff("weeble", "maps/4k.yml");
+  k.loadMusic("pow", AssetHandler.buildURL("maps/weeble/audio.mp3"));
 
   const music = k.play("pow");
   const timer = new AudioTimer(music, k, {
     startOffset: 1000,
-    gameOffset: -32
+    gameOffset: 0
   });
   const notemanager = new NoteManager(pow.NoteMap, pow.VeloMap, {
     noteSpeed: 500,
