@@ -13,6 +13,9 @@ export class NoteManager {
   noteSVTimeList = [];
   noteTimeLaneList = [];
   noteObjectList = [];
+  lnPieceList = [];
+  lnPieceListSortedStart = [];
+  lnPieceListSortedEnd = [];
 
   constructor(noteList, velList, {
     noteSpeed = 1000,
@@ -42,6 +45,13 @@ export class NoteManager {
 
     this.noteSVTimeList.sort((a, b) => a[0] - b[0]);
 
+    this.#compileLNVels();
+
+    this.lnPieceListSortedStart.sort((a, b) => a[0] - b[0]);
+    this.lnPieceListSortedEnd.sort((a, b) => a[0] - b[0]);
+
+    console.log(this.lnPieceList);
+
     // console.log(this.noteTimeLaneList);
     // console.log(this.velObjectList.map((x, i) => ({
     //   time: this.velTimeList[i],
@@ -66,6 +76,55 @@ export class NoteManager {
         svtm: newPos, lane, tail, time, id: i
       });
     });
+  }
+
+  #compileLNVels() {
+    this.lnPieceList = [];
+    this.noteObjectList.forEach(({ svtm, time, lane, tail }, i) => {
+
+      const lnSVs = ArrayUtils.getClosestRangeLazy(time, tail, this.velObjectList, x => x.time);
+
+      let firstOffset;
+      if (lnSVs == null) firstOffset = this.getCalculatedSVPosition(tail);
+      else firstOffset = this.velObjectList[lnSVs[0]].time + this.velObjectList[lnSVs[0]].offset;
+
+      console.log(lnSVs == null, this.velObjectList.slice(lnSVs[0], lnSVs[1] + 1));
+
+      this.lnPieceList.push({
+        noteid: i,
+        id: i,
+        pcid: i,
+        pvid: null,
+        startTime: svtm,
+        lane,
+        endTime: firstOffset
+      });
+
+      this.lnPieceListSortedStart.push([svtm, i]);
+      this.lnPieceListSortedEnd.push([firstOffset, i]);
+
+      if (lnSVs == null) return;
+
+      // chop up each LN into pieces
+      this.velObjectList.slice(lnSVs[0], lnSVs[1] + 1).forEach((svobj, sv) => {
+        const lastPiece = this.lnPieceList.at(-1);
+        const endTime = svobj.offset + (svobj.time + ((tail - svobj.time) * svobj.scale));
+        console.log(svobj, tail);
+        const idx = this.lnPieceList.length;
+
+        this.lnPieceList.push({
+          noteid: i,
+          id: idx,
+          pcid: sv + 1,
+          pvid: sv,
+          startTime: lastPiece?.endTime || svtm,
+          lane,
+          endTime
+        });
+        this.lnPieceListSortedStart.push([lastPiece?.endTime || svtm, idx]);
+        this.lnPieceListSortedEnd.push([endTime, idx]);
+      })
+    })
   }
 
   #compileVelOffsets() {
@@ -102,6 +161,7 @@ export class NoteManager {
     return this.noteObjectList[this.noteTimeLaneList[lane][noteidx][1]];
   }
 
+  // TODO: refactor this function
   getVisibleNotes(time) {
     const noteidxidx = ArrayUtils.getClosestEnd(this.noteSVTimeList, time, o => o[0]);
     const noteidx = this.noteSVTimeList[noteidxidx][1]; // idgaf if it crashes
@@ -128,5 +188,29 @@ export class NoteManager {
       i--;
     }
     return result;
+  }
+
+  getVisibleLNs(time) {
+    const startSort = ArrayUtils.getClosestRange(
+      time + this.noteSpeed,
+      time - this.noteSpeed,
+      this.lnPieceListSortedStart,
+      x => x[0]
+    );
+    const endSort = ArrayUtils.getClosestRange(
+      time + this.noteSpeed,
+      time - this.noteSpeed,
+      this.lnPieceListSortedEnd,
+      x => x[0]
+    );
+
+    if (startSort == null) return this.lnPieceListSortedEnd.slice(endSort);
+    if (endSort == null) return this.lnPieceListSortedStart.slice(startSort);
+
+    const startSortIndices = this.lnPieceListSortedStart.slice(startSort);
+    const endSortIndices = this.lnPieceListSortedEnd.slice(endSort);
+
+    // just return a hunk of junk of stuff that is more efficient to deal with in rendering
+    return startSortIndices.concat(endSortIndices);
   }
 }

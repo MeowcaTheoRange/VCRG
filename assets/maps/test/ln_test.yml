@@ -1,0 +1,24 @@
+MetaVer: 1
+Mappers: 
+- KGB Official
+MapName: official quaver music artist when
+Lanes: 4
+BeatMap:
+- Time: 0
+  Bpm: 120
+VeloMap:
+- Time: 1000
+  Scale: -1
+- Time: 2000
+  Scale: 1
+- Time: 3000
+  Scale: -1
+- Time: 4000
+  Scale: 1
+NoteMap:
+- Time: 500
+  Lane: 0
+  Tail: 2000
+- Time: 2500
+  Lane: 2
+  Tail: 4000

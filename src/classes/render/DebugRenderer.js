@@ -1,3 +1,5 @@
+import { ArrayUtils } from "../../utils/ArrayUtils";
+
 export class DebugRenderer {
   #k;
   #timer;
@@ -37,6 +39,7 @@ export class DebugRenderer {
       const currentTime = this.#timer.currentTime;
       const timeOffset = this.#notemanager.getCalculatedSVPosition(currentTime);
       const currentVisible = this.#notemanager.getVisibleNotes(timeOffset);
+      const currentLNsVisible = this.#notemanager.getVisibleLNs(timeOffset);
 
       this.#k.drawRect({
         pos: this.#k.vec2(0, this.hitHeight),
@@ -45,10 +48,7 @@ export class DebugRenderer {
         color: this.#k.RED
       });
 
-      currentVisible.splice(0, 500).forEach((note) => {
-        const judgement = this.#statemanager.getNoteJudgement(note.id);
-        if (judgement != null) return;
-
+      currentVisible.forEach((note) => {
         const timePos = (note.svtm - timeOffset) / this.#notemanager.noteSpeed;
         const actualPos = (timePos * (this.genHeight - this.hitHeight)) + this.hitHeight;
 
@@ -58,14 +58,53 @@ export class DebugRenderer {
           pos: this.#k.vec2(curX, actualPos),
           width: this.noteSize,
           height: this.noteSize,
-          color: this.#k.BLUE
+          color: this.#k.BLUE,
+          z: 2
         });
         this.#k.drawText({
           pos: this.#k.vec2(curX, actualPos),
           text: note.id + "\n" + timePos.toFixed(2),
           width: this.noteSize,
           align: "center",
-          size: 16
+          size: 16,
+          z: 2
+        });
+      });
+
+      console.log(currentLNsVisible.length);
+
+      // dogshit optimization variable (see NoteManager -> getVisibleLNs)
+      let lnIDXNeverReleasedCompilation = {};
+      currentLNsVisible.forEach(([_, idx]) => {
+        // this is its only purpose
+        if (lnIDXNeverReleasedCompilation[idx] != null) return;
+        else lnIDXNeverReleasedCompilation[idx] = true;
+
+        const ln = this.#notemanager.lnPieceList[idx];
+
+        const startTimePos = (ln.startTime - timeOffset) / this.#notemanager.noteSpeed;
+        const startActualPos = (startTimePos * (this.genHeight - this.hitHeight)) + this.hitHeight;
+        const endTimePos = (ln.endTime - timeOffset) / this.#notemanager.noteSpeed;
+        const endActualPos = (endTimePos * (this.genHeight - this.hitHeight)) + this.hitHeight;
+
+        const laneWidth = this.width / this.#notemanager.lanes;
+        const curX = (laneWidth * ln.lane) + ((laneWidth - this.noteSize) / 2);
+
+        this.#k.drawRect({
+          pos: this.#k.vec2(curX, Math.min(startActualPos, endActualPos)),
+          width: this.noteSize,
+          height: Math.abs(endActualPos - startActualPos),
+          color: this.#k.WHITE,
+          z: ln.pcid < 1 ? 1 : 3
+        });
+        this.#k.drawText({
+          pos: this.#k.vec2(curX, Math.min(startActualPos, endActualPos)),
+          text: ln.id + "\n" + Math.min(startActualPos, endActualPos).toFixed(2),
+          width: this.noteSize,
+          align: "center",
+          size: 16,
+          color: this.#k.BLACK,
+          z: ln.pcid < 1 ? 1 : 3
         });
       });
 
